@@ -1,0 +1,74 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="windowStyle" TargetType="Window">
+        <Setter Property="Title" Value="Compiece"/>
+        <Setter Property="Height" Value="620"/>
+        <Setter Property="Width" Value="1024"/>
+        <Setter Property="MinHeight" Value="480"/>
+        <Setter Property="MinWidth" Value="848"/>
+        <Setter Property="MaxHeight" Value="1080"/>
+        <Setter Property="MaxWidth" Value="1920"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+    </Style>
+    <Style x:Key="borderStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="7"/>
+        <Setter Property="Background" Value="#f5f5f5">
+        </Setter>
+    </Style>
+    <Style x:Key="btnCloseStyle" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="btnControlStyle" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#7fc7ff"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="imageControlStyle" TargetType="Image">
+        <Setter Property="Width" Value="15"/>
+        <Setter Property="Height" Value="15"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="textStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Verdana"/>
+    </Style>
+    <Style x:Key="btnWorkStyle" TargetType="Button">
+        <Setter Property="Width" Value="300"/>
+        <Setter Property="Height" Value="100"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+</ResourceDictionary>
