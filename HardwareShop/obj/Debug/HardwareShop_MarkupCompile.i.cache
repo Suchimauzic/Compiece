@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-K:\C#\Projects\HardwareShop\HardwareShop\obj\Debug\
+E:\C#\Projects\HardwareShop\HardwareShop\obj\Debug\
 HardwareShop
 none
 false
 DEBUG;TRACE
-K:\C#\Projects\HardwareShop\HardwareShop\App.xaml
-4-95694269
+E:\C#\Projects\HardwareShop\HardwareShop\App.xaml
+5172489830
 
-8265395801
+9-207110694
 13-1080843617
-MainWindow.xaml;Themes\Theme_Light.xaml;ToolBar.xaml;View\CatalogView.xaml;
+MainWindow.xaml;Themes\Theme_Light.xaml;ToolBar.xaml;View\CartOfOrders.xaml;View\CatalogView.xaml;
 
-False
+True
 

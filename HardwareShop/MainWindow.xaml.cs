@@ -1,4 +1,5 @@
 ﻿using HardwareShop.Classes;
+using HardwareShop.View;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -75,6 +76,27 @@ namespace HardwareShop
         {
             Application.Current.MainWindow.WindowState = WindowState.Minimized;
         }
+
+        /*========================================
+              Кнопки переходов между окнами
+        ========================================*/
+
+        public void btnCatalog_Click(object sender, RoutedEventArgs e)
+        {
+            CatalogView catalog = new CatalogView();
+            this.Hide();
+            catalog.ShowDialog();
+            this.ShowDialog();
+        }
+
+        public void btnCartOfOrders_Click(object sender, RoutedEventArgs e)
+        {
+            CartOfOrders cart = new CartOfOrders();
+            this.Hide();
+            cart.ShowDialog();
+            this.ShowDialog();
+        }
+
 
         private void btnWork_Click(object sender, RoutedEventArgs e)
         {

@@ -15,15 +15,14 @@ using System.Windows.Shapes;
 namespace HardwareShop.View
 {
     /// <summary>
-    /// Логика взаимодействия для CatalogView.xaml
+    /// Логика взаимодействия для CartOfOrders.xaml
     /// </summary>
-    public partial class CatalogView : Window
+    public partial class CartOfOrders : Window
     {
-        public CatalogView()
+        public CartOfOrders()
         {
             InitializeComponent();
         }
-
         /*========================================
                     Работа ToolBar
         ========================================*/

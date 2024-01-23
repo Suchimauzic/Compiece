@@ -41,3 +41,5 @@ E:\C#\Projects\HardwareShop\HardwareShop\obj\Debug\ToolBar.baml
 E:\C#\Projects\HardwareShop\HardwareShop\obj\Debug\ToolBar.g.cs
 E:\C#\Projects\HardwareShop\HardwareShop\obj\Debug\View\CatalogView.g.cs
 E:\C#\Projects\HardwareShop\HardwareShop\obj\Debug\View\CatalogView.baml
+E:\C#\Projects\HardwareShop\HardwareShop\obj\Debug\View\CartOfOrders.g.cs
+E:\C#\Projects\HardwareShop\HardwareShop\obj\Debug\View\CartOfOrders.baml
