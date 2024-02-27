@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CompieceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Authoriz">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="UserLogin" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserLogin" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategId" />
+    </Key>
+    <Property Name="CategId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Component" Relationship="Self.IdCateg_fk" FromRole="Category" ToRole="Component" />
+  </EntityType>
+  <EntityType Name="Component">
+    <Key>
+      <PropertyRef Name="ComId" />
+    </Key>
+    <Property Name="ComId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CategId" Type="Int32" Nullable="false" />
+    <Property Name="Discription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PictPath" Type="String" MaxLength="270" FixedLength="false" Unicode="false" />
+    <Property Name="PictBinary" Type="Binary" MaxLength="1" FixedLength="true" />
+    <NavigationProperty Name="Category" Relationship="Self.IdCateg_fk" FromRole="Component" ToRole="Category" />
+  </EntityType>
+  <Association Name="IdCateg_fk">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Component" Type="Self.Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategId" />
+      </Principal>
+      <Dependent Role="Component">
+        <PropertyRef Name="CategId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CompieceEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Authoriz" EntityType="Self.Authoriz" />
+    <EntitySet Name="Category" EntityType="Self.Category" />
+    <EntitySet Name="Component" EntityType="Self.Component" />
+    <AssociationSet Name="IdCateg_fk" Association="Self.IdCateg_fk">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Component" EntitySet="Component" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

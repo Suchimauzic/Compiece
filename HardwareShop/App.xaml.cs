@@ -13,6 +13,6 @@ namespace HardwareShop
     /// </summary>
     public partial class App : Application
     {
-
+        public static Entities.CompieceEntities DB;
     }
 }

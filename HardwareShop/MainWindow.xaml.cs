@@ -26,6 +26,7 @@ namespace HardwareShop
         public MainWindow()
         {
             InitializeComponent();
+            App.DB = new Entities.CompieceEntities();
             Application.Current.MainWindow.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
             Application.Current.MainWindow.MaxWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
         }
@@ -81,26 +82,24 @@ namespace HardwareShop
               Кнопки переходов между окнами
         ========================================*/
 
-        public void btnCatalog_Click(object sender, RoutedEventArgs e)
+        private void btnWindows_Click(object sender, RoutedEventArgs e)
         {
-            CatalogView catalog = new CatalogView();
+            Window window = null;
+            string windowName = (string)(sender as Button).Name;
+            switch (windowName)
+            {
+                case "btnCatalog": window = new CatalogView(); break;
+                case "btnOrder": window = new CartOfOrders(); break;
+                case "btnUpdate": window = new Authorization(); break;
+            }
             this.Hide();
-            catalog.ShowDialog();
+            window.ShowDialog();
             this.ShowDialog();
         }
 
-        public void btnCartOfOrders_Click(object sender, RoutedEventArgs e)
+        private void getLocateWindow()
         {
-            CartOfOrders cart = new CartOfOrders();
-            this.Hide();
-            cart.ShowDialog();
-            this.ShowDialog();
-        }
-
-
-        private void btnWork_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show($"\"{(sender as Button).Content}\" находиться в разработке, в скором будующем эта функция будет работать!", "Увы...", MessageBoxButton.OK);
+            //WindowHelper.points = this.PointFromScreen(;
         }
     }
 }

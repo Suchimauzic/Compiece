@@ -23,6 +23,7 @@ namespace HardwareShop.View
         {
             InitializeComponent();
         }
+
         /*========================================
                     Работа ToolBar
         ========================================*/
@@ -73,6 +74,14 @@ namespace HardwareShop.View
         private void btnBack_Click(object sender, RoutedEventArgs e)                            // Кнопка "Назад"
         {
             this.Close();
+        }
+
+        private void btnCatalog_Click(object sender, RoutedEventArgs e)                            // Кнопка "Назад"
+        {
+            CatalogView catalog = new CatalogView();
+            this.Hide();
+            catalog.ShowDialog();
+            this.ShowDialog();
         }
     }
 }

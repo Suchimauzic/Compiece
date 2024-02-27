@@ -63,10 +63,10 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Button x:Name="btnCatalog" Content="Каталог" Style="{DynamicResource btnWorkStyle}"
-                        Grid.Row="1" Click="btnCatalog_Click">
+                        Grid.Row="1" Click="btnWindows_Click">
                 </Button>
                 <Button x:Name="btnOrder" Content="Сделать заказ" Style="{DynamicResource btnWorkStyle}"
-                        Grid.Row="2" Click="btnCartOfOrders_Click">
+                        Grid.Row="2" Click="btnWindows_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="7"/>
@@ -74,7 +74,7 @@
                     </Button.Resources>
                 </Button>
                 <Button x:Name="btnUpdate" Content="Отредактировать" Style="{DynamicResource btnWorkStyle}"
-                        Grid.Row="3" Click="btnWork_Click">
+                        Grid.Row="3" Click="btnWindows_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="7"/>

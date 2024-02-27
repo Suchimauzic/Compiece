@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CompieceModelContainer" CdmEntityContainer="CompieceEntities">
+    <EntitySetMapping Name="Authoriz">
+      <EntityTypeMapping TypeName="CompieceModel.Authoriz">
+        <MappingFragment StoreEntitySet="Authoriz">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="CompieceModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategId" ColumnName="CategId" />
+          <ScalarProperty Name="CategName" ColumnName="CategName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Component">
+      <EntityTypeMapping TypeName="CompieceModel.Component">
+        <MappingFragment StoreEntitySet="Component">
+          <ScalarProperty Name="ComId" ColumnName="ComId" />
+          <ScalarProperty Name="ComName" ColumnName="ComName" />
+          <ScalarProperty Name="CategId" ColumnName="CategId" />
+          <ScalarProperty Name="Discription" ColumnName="Discription" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PictPath" ColumnName="PictPath" />
+          <ScalarProperty Name="PictBinary" ColumnName="PictBinary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

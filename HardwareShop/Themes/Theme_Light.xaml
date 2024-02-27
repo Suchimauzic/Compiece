@@ -64,6 +64,12 @@
     </Style>
     <Style x:Key="textStyle" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style x:Key="textBoxStyle" TargetType="TextBox">
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
     <Style x:Key="btnWorkStyle" TargetType="Button">
         <Setter Property="Width" Value="300"/>
