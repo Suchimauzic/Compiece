@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HardwareShop.View"
         mc:Ignorable="d"
-        Style="{DynamicResource windowStyle}">
+        Style="{DynamicResource windowStyle}"
+        Loaded="Window_Loaded">
     <Border Style="{DynamicResource borderStyle}">
         <Grid>
             <Grid.RowDefinitions>
@@ -53,12 +54,50 @@
                 <Image Width="45" Height="45" Source="/Resources/Icon.png" HorizontalAlignment="Left" Margin="20,0,0,0"/>
                 <TextBlock Text="Каталог" Style="{DynamicResource textStyle}" FontSize="25"
                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Button x:Name="btnBack" Content="Назад" HorizontalAlignment="Right" VerticalAlignment="Center"
-                        Width="100" Height="30" Margin="0,0,25,0" Click="btnBack_Click"/>
+                <Button x:Name="btnBack" Content="Назад" 
+                        Style="{DynamicResource btnBackStyle}" Click="btnBack_Click"/>
             </Grid>
             <Grid Grid.Row="3">
-                <TextBlock Text="Пока в разработке :)" Style="{DynamicResource textStyle}" FontSize="80" HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="7*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <ComboBox x:Name="cbSort" Grid.Column="0" Margin="12" FontFamily="Verdana"
+                                  FontSize="12" VerticalAlignment="Center" SelectionChanged="cbSort_SelectionChanged">
+                            <ComboBoxItem Content="Без фильтрации"/>
+                            <ComboBoxItem Content="По увеличению"/>
+                            <ComboBoxItem Content="По убыванию"/>
+                        </ComboBox>
+                        <ComboBox x:Name="cbCateg" Grid.Column="1" Margin="12" FontFamily="Verdana"
+                                  FontSize="12" VerticalAlignment="Center" SelectionChanged="cbCateg_SelectionChanged">
+                        </ComboBox>
+                        <TextBox x:Name="ThingName" Grid.Column="2" Style="{DynamicResource textBoxStyle}"
+                                 Margin="30,12,30,12" Grid.ColumnSpan="2" TextChanged="ThingName_TextChanged"/>
+                        <TextBlock x:Name="textCountFields" Text="0/0" Grid.Column="4"
+                                   Style="{DynamicResource textStyle}" FontSize="16" VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                    </Grid>
+                    <DataGrid x:Name="dtCatalog" AutoGenerateColumns="False" Grid.Row="1"
+                              IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Width="7*"
+                                            Binding="{Binding Path=ComName}"/>
+                            <DataGridTextColumn Header="Категория" Width="2*"
+                                            Binding="{Binding Path=Category.CategName}"/>
+                            <DataGridTextColumn Header="Цена" Width="1*"
+                                            Binding="{Binding Path=Price}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
             </Grid>
             <Grid Grid.Row="4">
                 <Grid>

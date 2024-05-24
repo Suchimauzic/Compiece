@@ -107,8 +107,10 @@ E:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\HardwareShop.g.res
 E:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\HardwareShop.Properties.Resources.resources
 E:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\HardwareShop.csproj.GenerateResource.cache
 E:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\HardwareShop.csproj.CoreCompileInputs.cache
-E:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\HardwareShop.csproj.CopyComplete
 E:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\HardwareShop.exe
 E:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\HardwareShop.pdb
 E:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\View\UpdateView.g.cs
 E:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\View\UpdateView.baml
+K:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\View\UpdateView.g.cs
+K:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\View\UpdateView.baml
+E:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\Hardware.29066BCF.Up2Date

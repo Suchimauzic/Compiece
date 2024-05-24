@@ -1,20 +1,8 @@
-﻿using HardwareShop.Classes;
-using HardwareShop.View;
-using Microsoft.Win32;
+﻿using HardwareShop.View;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HardwareShop
 {
@@ -26,7 +14,7 @@ namespace HardwareShop
         public MainWindow()
         {
             InitializeComponent();
-            App.DB = new Entities.CompieceEntities();
+            App.DB = new Entities.CompieceEntities();           // Подключение к базе данных
             Application.Current.MainWindow.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
             Application.Current.MainWindow.MaxWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
         }
@@ -85,8 +73,8 @@ namespace HardwareShop
         private void btnWindows_Click(object sender, RoutedEventArgs e)
         {
             Window window = null;
-            string windowName = (string)(sender as Button).Name;
-            switch (windowName)
+            string windowName = (string)(sender as Button).Name;        // Получение названия кнопки
+            switch (windowName)                                         // Поиск кнопки и создание окна
             {
                 case "btnCatalog": window = new CatalogView(); break;
                 case "btnOrder": window = new CartOfOrders(); break;
