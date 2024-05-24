@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 K:\Programing\C#\Projects\HardwareShop\HardwareShop\App.xaml
-71860309167
+8503149296
 21832155001
-18-553520201
+20-801024136
 181363377813
-MainWindow.xaml;Themes\Theme_Light.xaml;ToolBar.xaml;View\Authorization.xaml;View\CartOfOrders.xaml;View\CatalogView.xaml;View\UpdateView.xaml;
+MainWindow.xaml;Themes\Theme_Light.xaml;ToolBar.xaml;View\Authorization.xaml;View\CartOfOrders.xaml;View\CatalogView.xaml;View\CreateOrder.xaml;View\UpdateView.xaml;
 
 False
 

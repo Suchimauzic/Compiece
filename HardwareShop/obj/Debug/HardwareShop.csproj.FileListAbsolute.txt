@@ -114,3 +114,5 @@ E:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\View\UpdateView.ba
 K:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\View\UpdateView.g.cs
 K:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\View\UpdateView.baml
 E:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\Hardware.29066BCF.Up2Date
+K:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\View\CreateOrder.g.cs
+K:\Programing\C#\Projects\HardwareShop\HardwareShop\obj\Debug\View\CreateOrder.baml

@@ -172,4 +172,55 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <Style x:Key="btnPlaceAnOrderStyle" TargetType="Button">
+        <Setter Property="Width" Value="250"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#228b22" Offset="0.0"/>
+                    <GradientStop Color="#0c5705" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="#f0f0f0"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="0,0,20,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border" CornerRadius="7" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.050" To="15" Storyboard.TargetProperty="FontSize"/>
+                            <DoubleAnimation Duration="0:0:0.050" To="45" Storyboard.TargetProperty="Height"/>
+                            <DoubleAnimation Duration="0:0:0.050" To="255" Storyboard.TargetProperty="Width"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.050" To="14" Storyboard.TargetProperty="FontSize"/>
+                            <DoubleAnimation Duration="0:0:0.050" To="40" Storyboard.TargetProperty="Height"/>
+                            <DoubleAnimation Duration="0:0:0.050" To="250" Storyboard.TargetProperty="Width"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

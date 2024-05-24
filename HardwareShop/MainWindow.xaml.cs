@@ -77,7 +77,7 @@ namespace HardwareShop
             switch (windowName)                                         // Поиск кнопки и создание окна
             {
                 case "btnCatalog": window = new CatalogView(); break;
-                case "btnOrder": window = new CartOfOrders(); break;
+                case "btnOrder": window = new CreateOrder(); break;
                 case "btnUpdate": window = new Authorization(); break;
             }
             this.Hide();

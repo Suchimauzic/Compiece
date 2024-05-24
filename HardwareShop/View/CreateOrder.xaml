@@ -1,0 +1,150 @@
+﻿<Window x:Class="HardwareShop.View.CreateOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HardwareShop.View"
+        mc:Ignorable="d"
+        Style="{DynamicResource windowStyle}"
+        Loaded="Window_Loaded">
+    <Border Style="{DynamicResource borderStyle}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="0.5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="ToolBar" Grid.Row="0" MouseDown="ToolBar_MouseDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="16*"/>
+                    <ColumnDefinition Width="13*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid HorizontalAlignment="Right" Grid.Column="2" Margin="0,0,7,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="btnClose" Style="{DynamicResource btnCloseStyle}" Grid.Column="2"
+                            Click="btnClose_Click">
+                            <Image  Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                    Source="/Resources/ToolBar/Close_Black.png"/>
+                        </Button>
+                        <Button x:Name="btnMaximize" Grid.Column="1" Style="{DynamicResource btnControlStyle}"
+                                Click="btnMaximize_Click">
+                            <Image x:Name="imageMaximize" Style="{DynamicResource imageControlStyle}" Source="/Resources/Toolbar/Maximize_Off_Black.png"/>
+                        </Button>
+                        <Button x:Name="btnMinimize" Grid.Column="0" Style="{DynamicResource btnControlStyle}"
+                                Click="btnMinimize_Click">
+                            <Image Style="{DynamicResource imageControlStyle}" Source="/Resources/ToolBar/Minimize_Black.png"/>
+                        </Button>
+                        <Image Width="30" Grid.Column="0"/>
+                    </Grid>
+                </Grid>
+                <Label Grid.Column="1"/>
+                <TextBlock Text="Compiece desktop" Grid.Column="0" VerticalAlignment="Center"
+                        Margin="20, 0, 0, 0"/>
+            </Grid>
+            <Border Grid.Row="1" Background="Black"/>
+            <Grid Grid.Row="2">
+                <Image Width="45" Height="45" Source="/Resources/Icon.png" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+                <TextBlock Text="Создание заказа" Style="{DynamicResource textStyle}" FontSize="25"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button x:Name="btnBack" Content="Назад" Style="{DynamicResource btnBackStyle}"
+                        Click="btnBack_Click"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid Margin="50,10,50,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="6*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2.7*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Категории" Grid.Column="0" Style="{DynamicResource textStyle}"
+                                   FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Margin="20,0,0,0"/>
+                        <TextBlock Text="Комплектующие" Grid.Column="1" Style="{DynamicResource textStyle}"
+                                   FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Margin="20,0,0,0"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2.7*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListBox x:Name="lbCategory" Grid.Column="0" SelectionChanged="lbCategory_SelectionChanged"/>
+                        <ListBox x:Name="lbCatalog" Grid.Column="1">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition Height="6"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Source="{Binding Path=PictPath}"/>
+                                            <StackPanel Grid.Column="2">
+                                                <TextBlock Text="{Binding Path=ComName}"/>
+                                                <TextBlock>
+                                                    <Run Text="{Binding Path=Price}"/>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Button Grid.Column="2" Name="btnInOrder" Content="Заказать"
+                                                    Width="100" HorizontalAlignment="Left" Click="btnInOrder_Click"/>
+                                        </Grid>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1.7*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="textPlaceAnOrder" Text="Сумма заказа: (сумма) руб" Grid.Column="0" Style="{DynamicResource textStyle}"
+                                   FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Margin="25,0,0,0"/>
+                        <Button x:Name="btnPlaceAnOrder" Content="Оформление заказа" Grid.Column="1"
+                                Style="{DynamicResource btnPlaceAnOrderStyle}" Click="btnPlaceAnOrder_Click"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="textNameCreator" Text="@Suchimauzic" Grid.Column="0"
+                           Style="{DynamicResource textStyle}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="textEmailCreator" Text="sergdog03@yandex.ru" Grid.Column="2"
+                           Style="{DynamicResource textStyle}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
