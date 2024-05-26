@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace HardwareShop.View
@@ -9,9 +11,20 @@ namespace HardwareShop.View
     /// </summary>
     public partial class CartOfOrders : Window
     {
+        CreateOrder createOrder;
+        List<Classes.ComponentInOrder> listComponentsInOrder;
+        double orderCost;
+
         public CartOfOrders()
         {
             InitializeComponent();
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            createOrder = this.Owner as CreateOrder;
+            listComponentsInOrder = createOrder.listComponentsInOrder;
+            ShowOrder();
         }
 
         /*========================================
@@ -61,17 +74,56 @@ namespace HardwareShop.View
             Application.Current.MainWindow.WindowState = WindowState.Minimized;
         }
 
+        /*========================================
+               Работа окна корзины заказов
+        ========================================*/
+
         private void btnBack_Click(object sender, RoutedEventArgs e)                            // Кнопка "Назад"
         {
             this.Close();
         }
 
-        private void btnCatalog_Click(object sender, RoutedEventArgs e)                            // Кнопка "Назад"
+        private void ShowOrder()
         {
-            CatalogView catalog = new CatalogView();
-            this.Hide();
-            catalog.ShowDialog();
-            this.ShowDialog();
+            dgOrder.ItemsSource = null;
+            dgOrder.ItemsSource = listComponentsInOrder;
+            orderCost = 0;
+            foreach (Classes.ComponentInOrder comp in listComponentsInOrder)
+            {
+                orderCost += comp.ComponentTotalCost;
+            }
+
+            textOrder.Text = "Сумма заказа: " + Math.Round(orderCost, 2);
+        }
+
+        private void btnAction_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            Classes.ComponentInOrder selectComponentInOrder = btn.DataContext as Classes.ComponentInOrder;
+
+            switch (btn.Content)
+            {
+                case "+":
+                    selectComponentInOrder.ComponentCount++;
+                    break;
+                case "-":
+                    selectComponentInOrder.ComponentCount--;
+                    break;
+                case "x":
+                    listComponentsInOrder.Remove(selectComponentInOrder);
+                    break;
+            }
+
+            if (selectComponentInOrder.ComponentCount <= 0)
+            {
+                listComponentsInOrder.Remove(selectComponentInOrder);
+            }
+            else
+            {
+                selectComponentInOrder.ComponentTotalCost = selectComponentInOrder.ComponentCount * selectComponentInOrder.ComponentCost;
+            }
+
+            ShowOrder();
         }
     }
 }

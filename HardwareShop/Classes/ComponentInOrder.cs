@@ -12,5 +12,6 @@ namespace HardwareShop.Classes
         public int ComponentCount { get; set; }
         public double ComponentCost { get; set; }
         public double ComponentTotalCost { get; set; }
+        public string ComponentPictPath { get; set; }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -44,7 +43,8 @@ namespace HardwareShop.View
             lbCategory.SelectedIndex = 0;
 
             // Отображение пустого списка комплектующих
-            listComponentsInOrder = new List<Classes.ComponentInOrder>();
+            if (listComponentsInOrder == null)
+                listComponentsInOrder = new List<Classes.ComponentInOrder>();
             orderCost = 0;
             textPlaceAnOrder.Text = "Сумма заказа: " + orderCost;
             ShowComponents();
@@ -156,6 +156,8 @@ namespace HardwareShop.View
 
                 componentInOrder.ComponentTotalCost = componentInOrder.ComponentCost * componentInOrder.ComponentCount;
 
+                componentInOrder.ComponentPictPath = componentSelect.PictPath;
+
                 orderCost += componentInOrder.ComponentCost;
                 textPlaceAnOrder.Text = "Сумма заказа: " + orderCost;
             }
@@ -168,7 +170,12 @@ namespace HardwareShop.View
 
         private void btnPlaceAnOrder_Click(object sender, RoutedEventArgs e)
         {
-            // Переход на окно оформления заказа
+            this.Hide();
+
+            CartOfOrders coo = new CartOfOrders();
+            coo.Owner = this;
+            coo.ShowDialog();
+            this.Close();
         }
     }
 }

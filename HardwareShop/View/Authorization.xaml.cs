@@ -18,6 +18,8 @@ namespace HardwareShop.View
 
         private string login, pass;
 
+        private bool isCheck = false;
+
         public Authorization()
         {
             InitializeComponent();
@@ -89,6 +91,15 @@ namespace HardwareShop.View
 
                 lockUnlockInterface();
 
+                if (!isCheck && tryCount == 3)
+                {
+                    tryCount = 0;
+                    MessageBox.Show("Вы 3 раза неверно вошли, поэтому система заблокирована на 10 сек", "Ошибка входа");
+                    Thread.Sleep(10000);
+                    return;
+                }
+
+
                 if (!string.IsNullOrEmpty(UserHelper.login) && !string.IsNullOrEmpty(UserHelper.password))
                 {
                     CatalogView catalog = new CatalogView();
@@ -138,6 +149,7 @@ namespace HardwareShop.View
                 isWaiting = false;
                 UserHelper.login = userSearch.UserLogin;
                 UserHelper.password = userSearch.UserPassword;
+                isCheck = true;
                 MessageBox.Show("Вы успешно зашли!");
             }
             else
@@ -145,9 +157,7 @@ namespace HardwareShop.View
                 isWaiting = false;
                 if (++tryCount >= 3)
                 {
-                    tryCount = 0;
-                    MessageBox.Show("Вы 3 раза неверно вошли, поэтому система заблокирована на 10 сек", "Ошибка входа");
-                    Thread.Sleep(10000);
+                    isCheck = false;
                 }
                 else
                 {

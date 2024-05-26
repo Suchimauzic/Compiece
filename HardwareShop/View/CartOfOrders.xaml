@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HardwareShop.View"
         mc:Ignorable="d"
-        Style="{DynamicResource windowStyle}">
+        Style="{DynamicResource windowStyle}"
+        Activated="Window_Activated">
     <Border Style="{DynamicResource borderStyle}">
         <Grid>
             <Grid.RowDefinitions>
@@ -31,7 +32,7 @@
                         <Button x:Name="btnClose" Style="{DynamicResource btnCloseStyle}" Grid.Column="2"
                             Click="btnClose_Click">
                             <Image  Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center"
-                 Source="/Resources/ToolBar/Close_Black.png"/>
+                                Source="/Resources/ToolBar/Close_Black.png"/>
                         </Button>
                         <Button x:Name="btnMaximize" Grid.Column="1" Style="{DynamicResource btnControlStyle}"
                             Click="btnMaximize_Click">
@@ -53,20 +54,38 @@
                 <Image Width="45" Height="45" Source="/Resources/Icon.png" HorizontalAlignment="Left" Margin="20,0,0,0"/>
                 <TextBlock Text="Корзина" Style="{DynamicResource textStyle}" FontSize="25"
                        HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Button x:Name="btnBack" Content="Назад" HorizontalAlignment="Right" VerticalAlignment="Center"
-                    Width="100" Height="30" Margin="0,0,25,0" Click="btnBack_Click"/>
+                <Button x:Name="btnBack" Content="Назад" Style="{DynamicResource btnBackStyle}"
+                        Click="btnBack_Click"/>
             </Grid>
             <Grid Grid.Row="3">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="8*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Button x:Name="btnCatalog" Content="В каталог" Grid.Row="2"
-                            HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                            Width="300" Height="100" FontSize="16" Margin="0,0,20,20"
-                            Click="btnCatalog_Click"/>
+                    <DataGrid x:Name="dgOrder" Grid.Row="1" AutoGenerateColumns="False"
+                              IsReadOnly="True" Grid.ColumnSpan="2" Margin="20,0,20,49" Grid.RowSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Binding="{Binding ComponentName}" Width="*"/>
+                            <DataGridTextColumn Header="Цена" Binding="{Binding ComponentCost}" Width="*"/>
+                            <DataGridTextColumn Header="Количество" Binding="{Binding ComponentCount}" Width="*"/>
+                            <DataGridTextColumn Header="Итого" Binding="{Binding ComponentTotalCost}" Width="*"/>
+                            <DataGridTemplateColumn Header="Действие" Width="120">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button x:Name="btnIncrease" Content="+" Width="30" Click="btnAction_Click"/>
+                                            <Button x:Name="btnDecrease" Content="-" Width="30" Click="btnAction_Click"/>
+                                            <Button x:Name="btDelete" Content="x" Width="30" Click="btnAction_Click"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBlock x:Name="textOrder" Text="Сумма заказа: (сумма)" Grid.Row="2"
+                               Style="{DynamicResource textStyle}" FontSize="18" Margin="40,0,0,0" VerticalAlignment="Center" />
                 </Grid>
             </Grid>
             <Grid Grid.Row="4">
